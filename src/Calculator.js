@@ -29,7 +29,7 @@ function Calculator() {
   };
 
   return (
-    <CalculatorUI
+    <CalculatorRender
       input={input}
       result={result}
       handleClick={handleClick}
@@ -40,7 +40,7 @@ function Calculator() {
   );
 }
 
-function CalculatorUI({
+function CalculatorRender({
   input,
   result,
   handleClick,
