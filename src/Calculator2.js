@@ -21,13 +21,13 @@ function calculate() {
       "9",
       "/",
       "0",
-      "=",
+      "calculate",
     ];
 
     buttonValues.forEach((value, index) => {
       if (value === "C") {
         buttons.push(<button key={value}>{value}</button>);
-      } else if (value === "=") {
+      } else if (value === "calculate") {
         buttons.push(<button key={value}>{value}</button>);
       } else {
         buttons.push(<button key={value}>{value}</button>);
@@ -43,8 +43,8 @@ function calculate() {
   return (
     <div>
       <h1>계산기</h1>
-      <h2>결과: </h2>
       <div>{renderButtons()}</div>
+      <h2>결과: </h2>
     </div>
   );
 }
