@@ -1,7 +1,6 @@
-import { isEditable } from "@testing-library/user-event/dist/utils";
 import React, { useState } from "react";
 
-const TodoFunction = () => {
+const TodoView = () => {
   const [todoAraay, setTodoArray] = useState([]);
   const [input, setInput] = useState("");
   const [isEditing, setIsEditing] = useState(null);
@@ -43,36 +42,8 @@ const TodoFunction = () => {
     setInput(event.target.value);
   };
 
-  return (
-    <TodoView
-      input={input}
-      todoAraay={todoAraay}
-      addTodo={addTodo}
-      deleteTodo={deleteTodo}
-      changeInput={changeInput}
-      isEditing={isEditing}
-      currentTodo={currentTodo}
-      handleEditChange={handleEditChange}
-      editTodo={editTodo}
-      saveTodo={saveTodo}
-    />
-  );
-};
-
-const TodoView = ({
-  input,
-  todoAraay,
-  addTodo,
-  deleteTodo,
-  changeInput,
-  isEditing,
-  currentTodo,
-  handleEditChange,
-  editTodo,
-  saveTodo,
-}) => {
   const renderArray = () => {
-    // .map이 뭔지 모르겠음?
+    // .map 설명 듣기
     return todoAraay.map((todo, index) => (
       <li key={index}>
         {isEditing === index ? (
@@ -92,11 +63,6 @@ const TodoView = ({
           </span>
         )}
       </li>
-
-      //   <li key={index}>
-      //     {todo}
-      //     <button onClick={() => deleteTodo(index)}>삭제</button>
-      //   </li>
     ));
   };
 
@@ -117,4 +83,4 @@ const TodoView = ({
   );
 };
 
-export default TodoFunction;
+export default TodoView;
