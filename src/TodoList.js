@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const TodoView = () => {
   const [todoAraay, setTodoArray] = useState([]);
   const [input, setInput] = useState("");
-  const [isEditing, setIsEditing] = useState(null);
+  const [isEditing, setIsEditing] = useState("");
   const [currentTodo, setCurrentTodo] = useState("");
 
   const addTodo = () => {
@@ -17,7 +17,7 @@ const TodoView = () => {
     // const newTotoArray = todoAraay.filter((todo, i) => i !== index);
     // setTodoArray(newTotoArray);
     const newTotoArray = [...todoAraay];
-    newTotoArray.splice(index, 1);
+    newTotoArray.splice(index, 1); // index 부터 1개 자른다
     setTodoArray(newTotoArray);
   };
 
@@ -44,6 +44,7 @@ const TodoView = () => {
 
   const renderArray = () => {
     // .map 설명 듣기
+    // 첫번쨰는 그냥 배열의 인자값, 두번쨰는 index (무조건)
     return todoAraay.map((todo, index) => (
       <li key={index}>
         {isEditing === index ? (
