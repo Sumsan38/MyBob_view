@@ -8,10 +8,18 @@ const SingUp = () => {
 
   const handleSignUp = async () => {
     try {
-      await axiosInstance.post("member/join", { email, password });
-      alert("회원가입 성공");
+      const response = await axiosInstance.post("member/join", {
+        email,
+        password,
+      });
+
+      if (response.data.status !== 200) {
+        setError(response.data.message || "회원가입에 실패했습니다.");
+      } else {
+        alert("회원가입 성공");
+      }
     } catch (error) {
-      if (error.response && error.response.status === 400) {
+      if (error.response && error.response.data.status === 400) {
         setError(error.response.data.message || "회원 가입에 실패했습니다.");
       } else {
         setError("회원가입 중 오류가 발생했습니다.");

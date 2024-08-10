@@ -12,8 +12,12 @@ const Loign = () => {
         email,
         password,
       });
+
+      if (response.data.status !== 200) {
+        setError(response.data.message || "로그인에 실패했습니다.");
+      }
     } catch (error) {
-      if (error.response && error.response.status === 400) {
+      if (error.response && error.response.data.status === 400) {
         setError(error.response.data.message || "로그인에 실패했습니다.");
       } else {
         setError("로그인 중 오류가 발생했습니다.");
